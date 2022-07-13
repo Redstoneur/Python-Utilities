@@ -1,9 +1,9 @@
-from Utilites.Calendar.Date import *
-from Utilites.Calendar.Time import *
-from Utilites.Calendar.DateTime import *
-from Utilites.Calendar.WeekDay import *
-from Utilites.Calendar.Calendar import *
-from Utilites.Calendar.TimeTo import *
+from Utilities.Calendar.Date import *
+from Utilities.Calendar.Time import *
+from Utilities.Calendar.DateTime import *
+from Utilities.Calendar.WeekDay import *
+from Utilities.Calendar.Calendar import *
+from Utilities.Calendar.TimeTo import *
 
 
 ######################################################################################################################

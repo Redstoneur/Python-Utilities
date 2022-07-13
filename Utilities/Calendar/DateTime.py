@@ -1,5 +1,5 @@
-from Utilites.Calendar.Date import *
-from Utilites.Calendar.TimeTo import *
+from Utilities.Calendar.Date import *
+from Utilities.Calendar.TimeTo import *
 
 
 ######################################################################################################################

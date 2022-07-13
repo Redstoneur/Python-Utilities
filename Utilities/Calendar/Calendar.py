@@ -1,4 +1,4 @@
-from Utilites.Calendar.WeekDay import *
+from Utilities.Calendar.WeekDay import *
 from abc import abstractmethod, ABC
 
 

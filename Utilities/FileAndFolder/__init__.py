@@ -1,5 +1,5 @@
-from Utilites.FileAndFolder.ReadFile import *
-from Utilites.FileAndFolder.ReadFoldersContained import *
+from Utilities.FileAndFolder.ReadFile import *
+from Utilities.FileAndFolder.ReadFoldersContained import *
 
 
 ######################################################################################################################

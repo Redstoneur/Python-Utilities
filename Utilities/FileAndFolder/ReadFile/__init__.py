@@ -1,10 +1,10 @@
 import os
 import shutil as sh
-from Utilites.FileAndFolder.ReadFile.File import *
-from Utilites.FileAndFolder.ReadFile.SqlFile import *
-from Utilites.FileAndFolder.ReadFile.DumpSqlFile import *
-from Utilites.FileAndFolder.ReadFile.TxtFile import *
-from Utilites.FileAndFolder.ReadFile.JsonFile import *
+from Utilities.FileAndFolder.ReadFile.File import *
+from Utilities.FileAndFolder.ReadFile.SqlFile import *
+from Utilities.FileAndFolder.ReadFile.DumpSqlFile import *
+from Utilities.FileAndFolder.ReadFile.TxtFile import *
+from Utilities.FileAndFolder.ReadFile.JsonFile import *
 
 
 ######################################################################################################################

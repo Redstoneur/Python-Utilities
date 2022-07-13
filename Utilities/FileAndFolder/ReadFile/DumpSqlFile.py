@@ -1,5 +1,5 @@
-from Utilites.FileAndFolder.ReadFile.SqlFile import *
-from Utilites.Calendar import Date
+from Utilities.FileAndFolder.ReadFile.SqlFile import *
+from Utilities.Calendar import Date
 
 
 ######################################################################################################################
