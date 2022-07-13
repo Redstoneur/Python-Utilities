@@ -20,7 +20,7 @@ It is a collection of small Python scripts that I use in my daily work.
 To install this package, run the following command:
 
 ```bash
-python3 setup.py install
+python setup.py install
 ```
 
 ## Usage
