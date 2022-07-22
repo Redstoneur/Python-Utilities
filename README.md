@@ -20,6 +20,7 @@ It is a collection of small Python scripts that I use in my daily work.
 To install this package, run the following command:
 
 ```bash
+python setup.py build
 python setup.py install
 ```
 
@@ -28,10 +29,10 @@ python setup.py install
 To use this package, run the following command:
 
 ```python3
-import Python_Utilities as pyu
+import Utilities as pyu
 ```
 or
 
 ```python3
-from Python_Utilities import *
+from Utilities import *
 ```
