@@ -6,6 +6,10 @@ import mysql.connector as mysql
 ######################################################################################################################
 
 class DatabaseExecutor:
+    """
+    Class DatabaseExecutor
+    :description: This class is used to execute queries on a database.
+    """
     name: str
     user: str
     password: str
@@ -14,7 +18,15 @@ class DatabaseExecutor:
     connection = None
     cursor = None
 
-    def __init__(self, user: str, password: str, host: str, port: int, name: str = None):
+    def __init__(self, user: str, password: str, host: str, port: int, name: str = None) -> None:
+        """
+        Constructor for the class DatabaseExecutor
+        :param user: The user name of the database
+        :param password: The password of the database
+        :param host: The host of the database
+        :param port: The port of the database
+        :param name: The name of the database
+        """
         self.name: str = name
         self.user: str = user
         self.password: str = password
@@ -28,7 +40,11 @@ class DatabaseExecutor:
         else:
             self.connect()
 
-    def connectDB(self):
+    def connectDB(self) -> None:
+        """
+        Connect to a database
+        :return: None
+        """
         try:
             self.connection = mysql.connect(
                 database=self.name,
@@ -42,7 +58,11 @@ class DatabaseExecutor:
             print(e)
             exit()
 
-    def connect(self):
+    def connect(self) -> None:
+        """
+        Connect to a database without a database name
+        :return: None
+        """
         try:
             self.connection = mysql.connect(
                 user=self.user,
@@ -55,7 +75,13 @@ class DatabaseExecutor:
             print(e)
             exit()
 
-    def execute(self, query, isSelect: bool = False):
+    def execute(self, query, isSelect: bool = False) -> list:
+        """
+        Execute a query
+        :param query: The query to execute
+        :param isSelect: True if the query is a select query
+        :return:
+        """
         try:
             self.cursor.execute(query)
         except Exception as e:
@@ -67,18 +93,40 @@ class DatabaseExecutor:
             else:
                 self.connection.commit()
 
-    def fetchone(self):
+    def fetchone(self) -> list:
+        """
+        Fetch one row from the cursor
+        :return:
+        """
         return self.cursor.fetchone()
 
-    def fetchall(self):
+    def fetchall(self) -> list:
+        """
+        Fetch all the rows from the cursor
+        :return:
+        """
         return self.cursor.fetchall()
 
     def close(self):
+        """
+        Close the connection
+        :return: None
+        """
         self.cursor.close()
         self.connection.close()
 
     def select(self, table: str, select: list[str], where: str = None, limit: int = None, order: str = None,
                having: str = None) -> list:
+        """
+        Select a row from a table
+        :param table: The table to select from
+        :param select: The columns to select
+        :param where: The where clause
+        :param limit: The limit of the select
+        :param order: The order of the select
+        :param having: The having clause
+        :return:
+        """
         query = "SELECT "
         for i in select:
             query += i + ","
@@ -95,6 +143,13 @@ class DatabaseExecutor:
         return self.execute(query=query, isSelect=True)
 
     def update(self, table: str, set: list[[str, str]], where: str = None) -> None:
+        """
+        Update a row in a table
+        :param table: The table to update
+        :param set: The set clause
+        :param where: The where clause
+        :return:
+        """
         query = "UPDATE " + table + " SET "
         for i in set:
             query += i[0] + "=" + i[1] + ","
