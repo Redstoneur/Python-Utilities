@@ -15,6 +15,7 @@ def existFolder(folder: str) -> bool:
     """
     return os.path.isdir(folder)
 
+
 def moveFolder(folder: str, folderDestination: str) -> None:
     """
     move a folder in a folder
@@ -29,6 +30,7 @@ def moveFolder(folder: str, folderDestination: str) -> None:
             print(e)
     else:
         print("Folder not found : " + folder)
+
 
 def copyFolder(folder: str, folderDestination: str) -> None:
     """
@@ -45,6 +47,7 @@ def copyFolder(folder: str, folderDestination: str) -> None:
     else:
         print("Folder not found : " + folder)
 
+
 def deleteFolder(folder: str) -> None:
     """
     delete a folder
@@ -59,3 +62,17 @@ def deleteFolder(folder: str) -> None:
     else:
         print("Folder not found : " + folder)
 
+
+def createFolder(folder: str) -> None:
+    """
+    create a folder
+    :param folder: str, folder to create
+    :return: None
+    """
+    if not existFolder(folder):
+        try:
+            os.makedirs(folder)
+        except Exception as e:
+            print(e)
+    else:
+        print("Folder already exist : " + folder)
