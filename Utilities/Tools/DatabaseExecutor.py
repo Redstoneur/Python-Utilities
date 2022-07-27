@@ -239,4 +239,13 @@ class DatabaseExecutor:
         :return:
         """
         self.name = name
-        self.connectDB()
+        self.execute(query="USE " + name)
+
+    def listDatabases(self) -> list:
+        """
+        List all the databases
+        :return:
+        """
+        li = self.showDatabases()
+        li = [i[0] for i in li]
+        return li
