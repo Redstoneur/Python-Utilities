@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='Python_Utilities',
-      version='0.1.7',
+      version='0.1.8',
       description='A simple test package',
       long_description=open('README.md').read(),
       url='https://github.com/Redstoneur/Python-Utilities',

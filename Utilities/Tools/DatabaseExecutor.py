@@ -157,3 +157,86 @@ class DatabaseExecutor:
         if where is not None:
             query += " WHERE " + where
         self.execute(query=query)
+
+    def insert(self, table: str, values: list[str]) -> None:
+        """
+        Insert a row in a table
+        :param table: The table to insert in
+        :param values: The values to insert
+        :return:
+        """
+        query = "INSERT INTO " + table + " VALUES ("
+        for i in values:
+            query += i + ","
+        query = query[:-1]
+        query += ")"
+        self.execute(query=query)
+
+    def delete(self, table: str, where: str = None) -> None:
+        """
+        Delete a row in a table
+        :param table: The table to delete from
+        :param where: The where clause
+        :return:
+        """
+        query = "DELETE FROM " + table
+        if where is not None:
+            query += " WHERE " + where
+        self.execute(query=query)
+
+    def create(self, table: str, columns: list[str], primary: str = None) -> None:
+        """
+        Create a table
+        :param table: The table to create
+        :param columns: The columns of the table
+        :param primary: The primary key of the table
+        :return:
+        """
+        query = "CREATE TABLE " + table + " ("
+        for i in columns:
+            query += i + ","
+        query = query[:-1]
+        if primary is not None:
+            query += ", PRIMARY KEY (" + primary + ")"
+        query += ")"
+        self.execute(query=query)
+
+    def drop(self, table: str) -> None:
+        """
+        Drop a table
+        :param table: The table to drop
+        :return:
+        """
+        query = "DROP TABLE " + table
+        self.execute(query=query)
+
+    def showTables(self) -> list:
+        """
+        Show all the tables in the database
+        :return:
+        """
+        return self.execute(query="SHOW TABLES", isSelect=True)
+
+    def showColumns(self, table: str) -> list:
+        """
+        Show all the columns in a table
+        :param table: The table to show the columns of
+        :return:
+        """
+        return self.execute(query="SHOW COLUMNS FROM " + table, isSelect=True)
+
+    def showDatabases(self) -> list:
+        """
+        Show all the databases
+        :return:
+        """
+        return self.execute(query="SHOW DATABASES", isSelect=True)
+
+    def changeDatabases(self, name: str) -> None:
+        """
+        Change the database
+        :param name: The name of the database
+        :return:
+        """
+        self.name = name
+        self.connectDB()
