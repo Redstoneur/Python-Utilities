@@ -15,6 +15,7 @@ class JsonFile(file):
         :param path: str path to file
         :param path:
         """
+        super().__init__(path)
         self.path: str = path
         self.read()
 
@@ -62,6 +63,13 @@ class JsonFile(file):
             return self.data[key]
         else:
             return None
+
+    def get_keys(self) -> list:
+        """
+        get keys
+        :return:
+        """
+        return list(self.data.keys())
 
     def set(self, key: str, value: str) -> None:
         """
