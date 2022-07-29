@@ -1,10 +1,12 @@
 import os
 import shutil as sh
 from Utilities.FileAndFolder.ReadFile.File import *
+from Utilities.FileAndFolder.ReadFile.MarkdownFile import *
 from Utilities.FileAndFolder.ReadFile.SqlFile import *
 from Utilities.FileAndFolder.ReadFile.DumpSqlFile import *
 from Utilities.FileAndFolder.ReadFile.TxtFile import *
 from Utilities.FileAndFolder.ReadFile.JsonFile import *
+from Utilities.FileAndFolder.ReadFile.PythonFile import *
 
 
 ######################################################################################################################
@@ -85,6 +87,10 @@ def generateFile(path: str, sp: str = None, debug: bool = False) -> None | file:
             return TxtFile(path=path)
         elif path.split('.')[-1] == "json":
             return JsonFile(path=path)
+        elif path.split('.')[-1] == "md":
+            return MarkdownFile(path=path)
+        elif path.split('.')[-1] == "py":
+            return PythonFile(path=path)
         elif debug:
             print("file type not found : " + path)
             return None
@@ -94,3 +100,30 @@ def generateFile(path: str, sp: str = None, debug: bool = False) -> None | file:
     else:
         print("File not found : " + path)
         return None
+
+
+def createFile(path: str) -> None:
+    """
+    create a file
+    :param path: path to file
+    :param data: data to write in file
+    :param debug: bool, True if debug, False if not
+    :return: None
+    """
+    if not existFile(path):
+        try:
+            with open(path, 'w') as f:
+                if path.split(".")[-1] in ["txt", "sql", "md", "py"]:
+                    f.write("")
+                elif path.split(".")[-1] == "json":
+                    f.write("{}")
+                else:
+                    print("File type not found")
+                    f.close()
+                    exit()
+                f.close()
+        except Exception as e:
+            print(e)
+            exit()
+    else:
+        print("File already exist : " + path)
