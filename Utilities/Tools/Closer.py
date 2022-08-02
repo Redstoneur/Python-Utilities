@@ -2,6 +2,10 @@ from Utilities.Tools.Error import *
 from Utilities.Tools.Languages import *
 
 
+######################################################################################################################
+############################## Functions to close a program ##########################################################
+######################################################################################################################
+
 def closeProgramme(message: str = None, error: Error = None, code: int = None, language: str = "fr") -> None:
     """
     close the programme

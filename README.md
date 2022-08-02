@@ -8,12 +8,10 @@
 - [License](#license)
 - [Contact](#contact)
 
-
 ## About
 
 This is a collection of Python utilities.
 It is a collection of small Python scripts that I use in my daily work.
-
 
 ## Installation
 
@@ -31,6 +29,7 @@ To use this package, run the following command:
 ```python3
 import Utilities as pyu
 ```
+
 or
 
 ```python3

@@ -1,6 +1,9 @@
 from Utilities.Tools.OSTermCommande import CleanTerminal, CleanTerminalWithTime
 
 
+######################################################################################################################
+############################## Functions for Terminal Loader #########################################################
+######################################################################################################################
 def TerminalLoader(message: str, start: int = 0, stop: int = None, s: int | float = 2, divide: int = 100) -> int:
     """
     Load the terminal with the information of the computer
