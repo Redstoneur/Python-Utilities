@@ -1,0 +1,4 @@
+mysql~=0.0.3
+mysql-connector-python~=8.0.29
+setuptools~=58.1.0
+googletrans~=3.0.0

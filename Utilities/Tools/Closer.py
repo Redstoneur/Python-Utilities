@@ -1,6 +1,5 @@
 from Utilities.Tools.Error import *
-
-listOfLanguages = ["fr", "en"]
+from Utilities.Tools.Languages import *
 
 
 def closeProgramme(message: str = None, error: Error = None, code: int = None, language: str = "fr") -> None:
@@ -12,10 +11,7 @@ def closeProgramme(message: str = None, error: Error = None, code: int = None, l
     :param code: int, code of the error
     :return: None
     """
-    if language == "?" or language not in listOfLanguages:
-        print("The language must be in the list: " + str(listOfLanguages))
-        while language not in listOfLanguages:
-            language = input("Please enter the language: ")
+    language = haveLanguage(language)
 
     if message is not None:
         print(message)

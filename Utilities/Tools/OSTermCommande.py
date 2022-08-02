@@ -1,4 +1,5 @@
 import os
+from time import sleep
 import platform as plt
 from Utilities.Tools.Error import Error
 
@@ -95,6 +96,17 @@ def CleanTerminal() -> None:
         os.system("cls")
     else:  # if the os is linux
         os.system("clear")
+
+
+def CleanTerminalWithTime(s: int = 1, divide: int = 100) -> None:
+    """
+    clean the terminal with a loading bar
+    :param s: int, sleep time
+    :param divide: int, percentage of the loading bar
+    :return: None
+    """
+    sleep(s / divide)
+    CleanTerminal()
 
 
 def execute_command(command: str, printError: bool = False) -> Error:
